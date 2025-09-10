@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// URL của API gốc mới
+// URL của API gốc
 const SOURCE_API_URL = 'https://wtx.tele68.com/v1/tx/sessions';
 
 // Endpoint để lấy thông tin của phiên gần nhất
@@ -25,7 +25,7 @@ app.get('/api/taixiu/phien_gan_nhat', async (req, res) => {
 
         // Trích xuất và định dạng thông tin cần thiết
         const result = {
-            phien_truoc: latestResult._id,
+            phien_truoc: latestResult.id,
             xuc_xac: latestResult.dices
         };
 
@@ -48,5 +48,4 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
 
